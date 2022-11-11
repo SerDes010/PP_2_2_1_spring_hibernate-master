@@ -1,7 +1,5 @@
 package hiber.model;
 
-//import jakarta.persistence.*;
-
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -10,7 +8,7 @@ import java.util.Objects;
 public class User {
 
    @OneToOne(cascade = {CascadeType.ALL})
- @JoinColumn
+ @JoinColumn (name = "car_id")
  //  @MapsId
    private Car car;
    @Id
@@ -26,7 +24,7 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   public User() {}
+   public User(String model, int series) {}
    
    public User(String firstName, String lastName, String email) {
       this.firstName = firstName;
@@ -41,7 +39,11 @@ public class User {
       this.car = car;
    }
 
-   public Long getId() {
+    public User() {
+
+    }
+
+    public Long getId() {
       return id;
    }
 
@@ -80,13 +82,16 @@ public class User {
       this.car = car;
    }
 
-   @Override
+
+
+    @Override
    public String toString() {
       return "User{" +
-         //     "id=" + id +
+              "id=" + id +
               ", firstName='" + firstName + '\'' +
               ", lastName='" + lastName + '\'' +
               ", email='" + email + '\'' +
+              ", car='" + car +
               '}';
    }
 

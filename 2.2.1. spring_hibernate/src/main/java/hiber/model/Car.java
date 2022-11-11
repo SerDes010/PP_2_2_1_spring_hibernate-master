@@ -1,7 +1,5 @@
 package hiber.model;
 
-//import jakarta.persistence.*;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
